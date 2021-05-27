@@ -1,6 +1,7 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 
 const Totals = ({ orders }) => {
+	// Create variables to track all the totals
 	let totals = {
 		blue: 0,
 		lion: 0,
@@ -38,7 +39,33 @@ const Totals = ({ orders }) => {
 		royal: (blocks.royal / 15).toFixed(1),
 	};
 
-	console.log(totals, blocks, racks, shelves);
+	// Create variables to track the current inventory
+	const [blue, setBlue] = useState(0);
+	const [lion, setLion] = useState(0);
+	const [yellow, setYellow] = useState(0);
+	const [royal, setRoyal] = useState(0);
+	const [maitake, setMaitake] = useState(0);
+	const [shiitake, setShiitake] = useState(0);
+
+	const handleBlueChange = (event) => {
+		setBlue(event.target.value);
+	};
+	const handleLionChange = (event) => {
+		setLion(event.target.value);
+	};
+	const handleYellowChange = (event) => {
+		setYellow(event.target.value);
+	};
+	const handleRoyalChange = (event) => {
+		setRoyal(event.target.value);
+	};
+	const handleMaitakeChange = (event) => {
+		setMaitake(event.target.value);
+	};
+	const handleShiitakeChange = (event) => {
+		setShiitake(event.target.value);
+	};
+
 	return (
 		<div className="total-display">
 			<div className="table">
@@ -99,6 +126,65 @@ const Totals = ({ orders }) => {
 						<tr>
 							<td>Maitake</td>
 							<td>{totals.maitake}</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div className="table">
+				<table>
+					<thead>
+						<tr>
+							<th></th>
+							<th>Blue Oyster</th>
+							<th>Lion's Mane</th>
+							<th>Yellow Oyster</th>
+							<th>Royal Trumpet</th>
+							<th>Shiitake</th>
+							<th>Maitake</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th>Current inventory</th>
+							<td>
+								<input type="text" value={blue} onChange={handleBlueChange} />
+							</td>
+							<td>
+								<input type="text" value={lion} onChange={handleLionChange} />
+							</td>
+							<td>
+								<input
+									type="text"
+									value={yellow}
+									onChange={handleYellowChange}
+								/>
+							</td>
+							<td>
+								<input type="text" value={royal} onChange={handleRoyalChange} />
+							</td>
+							<td>
+								<input
+									type="text"
+									value={shiitake}
+									onChange={handleShiitakeChange}
+								/>
+							</td>
+							<td>
+								<input
+									type="text"
+									value={maitake}
+									onChange={handleMaitakeChange}
+								/>
+							</td>
+						</tr>
+						<tr>
+							<th>Needed</th>
+							<td>{totals.blue - blue}</td>
+							<td>{totals.lion - lion}</td>
+							<td>{totals.yellow - yellow}</td>
+							<td>{totals.royal - royal}</td>
+							<td>{totals.shiitake - shiitake}</td>
+							<td>{totals.maitake - maitake}</td>
 						</tr>
 					</tbody>
 				</table>
