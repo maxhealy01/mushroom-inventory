@@ -5,6 +5,7 @@ const path = require("path");
 const { typeDefs, resolvers } = require("./schemas");
 const { authMiddleware } = require("./utils/auth");
 const db = require("./config/connection");
+const favicon = require("express-favicon");
 
 const PORT = process.env.PORT || 3001;
 const app = express();
@@ -15,6 +16,8 @@ const server = new ApolloServer({
 });
 
 server.applyMiddleware({ app });
+
+app.use(favicon(__dirname + "/public/favicon.png"));
 
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
