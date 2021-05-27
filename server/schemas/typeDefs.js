@@ -3,68 +3,104 @@ const { gql } = require("apollo-server-express");
 // All of this data was lifted from the shop-shop module.
 // The only reason it's here is so that the server could start!
 const typeDefs = gql`
-	type Category {
+	type Mushroom {
 		_id: ID
 		name: String
+		avgYield: Float
+		blocksPerRack: Int
+		blocksPerShelf: Int
 	}
 
-	type Product {
+	type Pack {
 		_id: ID
 		name: String
-		description: String
-		image: String
-		quantity: Int
-		price: Float
-		category: Category
+		blueOyster: Float
+		lionsMane: Float
+		shiitake: Float
+		royalTrumpet: Float
+		maitake: Float
+		yellowOyster: Float
 	}
 
 	type Order {
 		_id: ID
-		purchaseDate: String
-		products: [Product]
+		name: String
+		date: String
+		blueOyster: Int
+		lionsMane: Int
+		royalTrumpet: Int
+		maitake: Int
+		yellowOyster: Int
+		umami: Int
+		fancy: Int
+		mixOys: Int
+		blue: Int
+		kingPack: Int
+		yellow: Int
+		lion: Int
+		boTotal: Int
+		yoTotal: Int
+		rtTotal: Int
+		shiTotal: Int
+		maiTotal: Int
+		lmTotal: Int
 	}
 
-	type User {
-		_id: ID
-		firstName: String
-		lastName: String
-		email: String
-		orders: [Order]
-	}
-
-	type Auth {
-		token: ID
-		user: User
-	}
-	type Checkout {
-		session: ID
+	type Total {
+		blueOyster: Int
+		lionsMane: Int
+		royalTrumpet: Int
+		maitake: Int
+		yellowOyster: Int
+		shiitake: Int
+		order: Order
 	}
 
 	type Query {
-		categories: [Category]
-		products(category: ID, name: String): [Product]
-		product(_id: ID!): Product
-		user: User
-		order(_id: ID!): Order
-		checkout(products: [ID]!): Checkout
+		mushrooms: [Mushroom]
+		packs: [Pack]
+		orders: [Order]
 	}
 
 	type Mutation {
-		addUser(
-			firstName: String!
-			lastName: String!
-			email: String!
-			password: String!
-		): Auth
-		addOrder(products: [ID]!): Order
-		updateUser(
-			firstName: String
-			lastName: String
-			email: String
-			password: String
-		): User
-		updateProduct(_id: ID!, quantity: Int!): Product
-		login(email: String!, password: String!): Auth
+		addMushroom(
+			name: String!
+			avgYield: Float
+			blocksPerRack: Int
+			blocksPerShelf: Int
+		): Mushroom
+		addPack(
+			name: String!
+			blueOyster: Float
+			lionsMane: Float
+			shiitake: Float
+			royalTrumpet: Float
+			maitake: Float
+			yellowOyster: Float
+		): Pack
+		addOrder(
+			name: String
+			date: String
+			blueOyster: Int
+			lionsMane: Int
+			royalTrumpet: Int
+			maitake: Int
+			yellowOyster: Int
+			umami: Int
+			fancy: Int
+			mixOys: Int
+			blue: Int
+			kingPack: Int
+			yellow: Int
+			lion: Int
+			boTotal: Int
+			yoTotal: Int
+			rtTotal: Int
+			shiTotal: Int
+			maiTotal: Int
+			lmTotal: Int
+		): Order
+		deleteOrder(_id: ID!): Order
 	}
 `;
 

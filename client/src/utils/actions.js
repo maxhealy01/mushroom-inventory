@@ -1,0 +1,1 @@
+export const UPDATE_TOTALS = "UPDATE_TOTALS";
