@@ -17,10 +17,10 @@ const server = new ApolloServer({
 
 server.applyMiddleware({ app });
 
-app.use(favicon(__dirname + "/public/favicon.png"));
-
 app.use(express.urlencoded({ extended: false }));
 app.use(express.json());
+
+app.use(favicon(__dirname + "/public/favicon.png"));
 
 // Serve up static assets
 // app.use("/images", express.static(path.join(__dirname, "../client/images")));
