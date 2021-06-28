@@ -1,10 +1,14 @@
-import React from "react";
+import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
+import { QUERY_ORDERS } from "./utils/queries";
+import { useQuery } from "@apollo/react-hooks";
 
 import Home from "./pages/Home";
+import Nav from "./components/Nav";
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
+import dayjs from "dayjs";
 
 const client = new ApolloClient({
 	request: (operation) => {
@@ -16,14 +20,25 @@ const client = new ApolloClient({
 			},
 		});
 	},
-	uri: "/graphql",
+	uri: "http://localhost:3001/graphql",
 });
 
 function App() {
+	const [navLinks] = useState([
+		"This Week's Orders",
+		"Orders By Week",
+		"New Order",
+	]);
+	const [currentNavLink, setCurrentNavLink] = useState(navLinks[0]);
 	return (
 		<ApolloProvider client={client}>
 			<Router>
 				<div>
+					<Nav
+						navLinks={navLinks}
+						setCurrentNavLink={setCurrentNavLink}
+						currentNavLink={currentNavLink}
+					/>
 					<Home />
 				</div>
 			</Router>
