@@ -64,18 +64,13 @@ export const ADD_ORDER = gql`
 		$maitake: Int
 		$yellowOyster: Int
 		$umami: Int
+		$maitakePack: Int
 		$fancy: Int
 		$mixOys: Int
 		$blue: Int
 		$kingPack: Int
 		$yellow: Int
 		$lion: Int
-		$boTotal: Int
-		$yoTotal: Int
-		$rtTotal: Int
-		$shiTotal: Int
-		$maiTotal: Int
-		$lmTotal: Int
 	) {
 		addOrder(
 			name: $name
@@ -86,18 +81,13 @@ export const ADD_ORDER = gql`
 			maitake: $maitake
 			yellowOyster: $yellowOyster
 			umami: $umami
+			maitakePack: $maitakePack
 			fancy: $fancy
 			mixOys: $mixOys
 			blue: $blue
 			kingPack: $kingPack
 			yellow: $yellow
 			lion: $lion
-			boTotal: $boTotal
-			yoTotal: $yoTotal
-			lmTotal: $lmTotal
-			rtTotal: $rtTotal
-			shiTotal: $shiTotal
-			maiTotal: $maiTotal
 		) {
 			_id
 			name
@@ -114,12 +104,6 @@ export const ADD_ORDER = gql`
 			kingPack
 			yellow
 			lion
-			boTotal
-			yoTotal
-			lmTotal
-			rtTotal
-			shiTotal
-			maiTotal
 		}
 	}
 `;

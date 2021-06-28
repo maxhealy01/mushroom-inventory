@@ -14,6 +14,7 @@ const OrderForm = () => {
 	const [mix, setMix] = useState(0);
 	const [yellowPack, setYellowPack] = useState(0);
 	const [umami, setUmami] = useState(0);
+	const [maitakePack, setMaitakePack] = useState(0);
 	const [blue, setBlue] = useState(0);
 	const [lion, setLion] = useState(0);
 	const [yellow, setYellow] = useState(0);
@@ -30,6 +31,7 @@ const OrderForm = () => {
 		mixOys: mix,
 		yellow: yellowPack,
 		umami: umami,
+		maitakePack: maitakePack,
 		blueOyster: blue,
 		lionsMane: lion,
 		yellowOyster: yellow,
@@ -48,6 +50,7 @@ const OrderForm = () => {
 			mixOys: Number(mix),
 			yellow: Number(yellowPack),
 			umami: Number(umami),
+			maitakePack: Number(maitakePack),
 			blueOyster: Number(blue),
 			lionsMane: Number(lion),
 			yellowOyster: Number(yellow),
@@ -64,6 +67,7 @@ const OrderForm = () => {
 		mix,
 		yellowPack,
 		umami,
+		maitakePack,
 		blue,
 		lion,
 		yellow,
@@ -72,35 +76,6 @@ const OrderForm = () => {
 	]);
 
 	const submitOrder = (event) => {
-		let totals = {};
-		totals.blue = Math.ceil(
-			(formState.umami * 0.25 +
-				formState.mixOys * 0.4 +
-				formState.blue * 0.625) *
-				8 +
-				formState.blueOyster * 5.25
-		);
-		totals.lion = Math.ceil(
-			(formState.lion * 0.625 + formState.fancy * 0.25) * 8 +
-				formState.lionsMane * 5.25
-		);
-		totals.yellow = Math.ceil(
-			(formState.mixOys * 0.2 + formState.yellow * 0.625) * 8 +
-				formState.yellowOyster * 4.25
-		);
-		totals.royal = Math.ceil(
-			(formState.umami * 0.25 +
-				formState.fancy * 0.21875 +
-				formState.kingPack * 0.625) *
-				8 +
-				formState.royalTrumpet * 5.25
-		);
-		totals.shiitake = Math.ceil(formState.umami * 0.125 * 8);
-		totals.maitake = Math.ceil(
-			formState.fancy * 0.1875 * 8 + formState.maitake * 5.25
-		);
-
-		console.log(totals);
 		addOrder({
 			variables: {
 				name: formState.name,
@@ -115,14 +90,9 @@ const OrderForm = () => {
 				mixOys: formState.mixOys,
 				royalTrumpet: formState.royalTrumpet,
 				umami: formState.umami,
+				maitakePack: formState.maitakePack,
 				yellow: formState.yellow,
 				yellowOyster: formState.yellowOyster,
-				boTotal: totals.blue,
-				lmTotal: totals.lion,
-				yoTotal: totals.yellow,
-				shiTotal: totals.shiitake,
-				maiTotal: totals.maitake,
-				rtTotal: totals.royal,
 			},
 		});
 	};
@@ -153,6 +123,9 @@ const OrderForm = () => {
 	};
 	const handleUmamiChange = (event) => {
 		setUmami(event.target.value);
+	};
+	const handleMaitakePackChange = (event) => {
+		setMaitakePack(event.target.value);
 	};
 	const handleBlueChange = (event) => {
 		setBlue(event.target.value);
@@ -253,6 +226,16 @@ const OrderForm = () => {
 									value={umami}
 									onChange={handleUmamiChange}
 								/>
+							</td>
+						</tr>
+						<tr>
+							<td>Maitake Pack</td>
+							<td>
+								<input
+									type="number"
+									value={maitakePack}
+									onChange={handleMaitakePackChange}
+								></input>
 							</td>
 						</tr>
 						<tr>

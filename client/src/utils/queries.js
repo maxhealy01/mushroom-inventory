@@ -27,18 +27,13 @@ export const QUERY_ORDERS = gql`
 			maitake
 			yellowOyster
 			umami
+			maitakePack
 			fancy
 			mixOys
 			blue
 			kingPack
 			yellow
 			lion
-			boTotal
-			yoTotal
-			shiTotal
-			maiTotal
-			rtTotal
-			lmTotal
 		}
 	}
 `;

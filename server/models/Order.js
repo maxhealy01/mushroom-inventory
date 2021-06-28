@@ -30,6 +30,9 @@ const orderSchema = new Schema({
 	umami: {
 		type: Number,
 	},
+	maitakePack: {
+		type: Number,
+	},
 	fancy: {
 		type: Number,
 	},
@@ -46,24 +49,6 @@ const orderSchema = new Schema({
 		type: Number,
 	},
 	lion: {
-		type: Number,
-	},
-	boTotal: {
-		type: Number,
-	},
-	yoTotal: {
-		type: Number,
-	},
-	rtTotal: {
-		type: Number,
-	},
-	shiTotal: {
-		type: Number,
-	},
-	maiTotal: {
-		type: Number,
-	},
-	lmTotal: {
 		type: Number,
 	},
 });

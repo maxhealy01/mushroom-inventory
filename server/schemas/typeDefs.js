@@ -32,18 +32,13 @@ const typeDefs = gql`
 		maitake: Int
 		yellowOyster: Int
 		umami: Int
+		maitakePack: Int
 		fancy: Int
 		mixOys: Int
 		blue: Int
 		kingPack: Int
 		yellow: Int
 		lion: Int
-		boTotal: Int
-		yoTotal: Int
-		rtTotal: Int
-		shiTotal: Int
-		maiTotal: Int
-		lmTotal: Int
 	}
 
 	type Total {
@@ -87,18 +82,13 @@ const typeDefs = gql`
 			maitake: Int
 			yellowOyster: Int
 			umami: Int
+			maitakePack: Int
 			fancy: Int
 			mixOys: Int
 			blue: Int
 			kingPack: Int
 			yellow: Int
 			lion: Int
-			boTotal: Int
-			yoTotal: Int
-			rtTotal: Int
-			shiTotal: Int
-			maiTotal: Int
-			lmTotal: Int
 		): Order
 		deleteOrder(_id: ID!): Order
 	}

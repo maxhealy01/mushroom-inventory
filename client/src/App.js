@@ -24,21 +24,11 @@ const client = new ApolloClient({
 });
 
 function App() {
-	const [navLinks] = useState([
-		"This Week's Orders",
-		"Orders By Week",
-		"New Order",
-	]);
-	const [currentNavLink, setCurrentNavLink] = useState(navLinks[0]);
 	return (
 		<ApolloProvider client={client}>
 			<Router>
 				<div>
-					<Nav
-						navLinks={navLinks}
-						setCurrentNavLink={setCurrentNavLink}
-						currentNavLink={currentNavLink}
-					/>
+					<Nav />
 					<Home />
 				</div>
 			</Router>

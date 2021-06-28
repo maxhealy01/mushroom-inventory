@@ -29,7 +29,6 @@ const resolvers = {
 		},
 		deleteOrder: async (parent, { _id }) => {
 			const order = await Order.findByIdAndDelete(_id);
-			Total.findOneAndDelete;
 			return order;
 		},
 	},
