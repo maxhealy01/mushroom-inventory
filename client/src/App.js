@@ -28,7 +28,6 @@ function App() {
 		<ApolloProvider client={client}>
 			<Router>
 				<div>
-					<Nav />
 					<Home />
 				</div>
 			</Router>

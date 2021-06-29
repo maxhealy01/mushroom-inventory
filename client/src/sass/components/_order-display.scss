@@ -13,13 +13,18 @@ th {
 }
 
 .order-display {
+	box-shadow: 0 1.5rem 4rem rgba(black, 0.15);
+	border-radius: 4%;
 	text-align: center;
 	border: 1px solid #999;
 	padding: 1rem;
-	width: 50%;
+	width: 45%;
+	margin: 0.25rem;
 	display: inline-block;
 	font-size: 1.6rem;
 	top: 0;
+	background-color: lightblue;
+	color: #330000;
 }
 
 .table {
@@ -31,4 +36,13 @@ th {
 
 input {
 	width: 80%;
+}
+
+.order-buttons {
+	& button {
+		color: yellow;
+		background-color: hotpink;
+		text-align: center;
+		margin: 0.25rem auto;
+	}
 }

@@ -220,7 +220,14 @@ const OrderDisplay = (order) => {
 			bulk.maitake * 5.25
 	);
 
-	console.log(totals);
+	let blocks = {
+		blue: totals.blue / 2.8,
+		lion: totals.lion / 1.1,
+		yellow: totals.yellow / 1.2,
+		royal: totals.royal / 1.3,
+		shiitake: totals.shiitake / 5,
+		maitake: totals.maitake / 5,
+	};
 
 	if (edit) {
 		return (
@@ -456,42 +463,51 @@ const OrderDisplay = (order) => {
 					<thead>
 						<tr>
 							<th>Type</th>
-							<th>Quantity</th>
+							<th>Quantity (lbs)</th>
+							<th>Blocks</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
 							<td>Blue Oyster</td>
 							<td>{totals.blue}</td>
+							<td>{blocks.blue.toFixed(1)}</td>
 						</tr>
 						<tr>
 							<td>Lion's Mane</td>
 							<td>{totals.lion}</td>
+							<td>{blocks.lion.toFixed(1)}</td>
 						</tr>
 						<tr>
 							<td>Yellow Oyster</td>
 							<td>{totals.yellow}</td>
+							<td>{blocks.yellow.toFixed(1)}</td>
 						</tr>
 						<tr>
 							<td>Royal Trumpet</td>
 							<td>{totals.royal}</td>
+							<td>{blocks.royal.toFixed(1)}</td>
 						</tr>
 						<tr>
 							<td>Shiitake</td>
 							<td>{totals.shiitake}</td>
+							<td>{blocks.shiitake.toFixed(1)} cases</td>
 						</tr>
 						<tr>
 							<td>Maitake</td>
 							<td>{totals.maitake}</td>
+							<td>{blocks.maitake.toFixed(1)} cases</td>
 						</tr>
 					</tbody>
 				</table>
-				<button onClick={editOrderHandler} className="btn-edit btn">
-					Edit Order
-				</button>
-				<button onClick={deleteOrderHandler} className="btn-delete btn">
-					Delete Order
-				</button>
+				<div className="order-buttons">
+					<button onClick={editOrderHandler} className="btn-edit btn">
+						Edit Order
+					</button>
+					<button onClick={deleteOrderHandler} className="btn-delete btn">
+						Delete Order
+					</button>
+				</div>
 			</div>
 		</div>
 	);

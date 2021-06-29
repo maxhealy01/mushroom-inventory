@@ -31,13 +31,18 @@ th {
   font-size: 1.6rem; }
 
 .order-display {
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  border-radius: 4%;
   text-align: center;
   border: 1px solid #999;
   padding: 1rem;
-  width: 50%;
+  width: 45%;
+  margin: 0.25rem;
   display: inline-block;
   font-size: 1.6rem;
-  top: 0; }
+  top: 0;
+  background-color: lightblue;
+  color: #330000; }
 
 .table {
   display: inline-block;
@@ -47,6 +52,12 @@ th {
 
 input {
   width: 80%; }
+
+.order-buttons button {
+  color: yellow;
+  background-color: hotpink;
+  text-align: center;
+  margin: 0.25rem auto; }
 
 .btn, .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -119,8 +130,10 @@ input {
   box-shadow: 0 0.5rem 1rem rgba(51, 51, 51, 0.15);
   transform: translateY(0); }
 
-.btn-delete {
-  display: block !important; }
+.week-btn {
+  background-color: coral !important;
+  border-radius: 10% !important;
+  margin: 1rem; }
 
 .totals-container {
   font-size: 1.6rem; }
