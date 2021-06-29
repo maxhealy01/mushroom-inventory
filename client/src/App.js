@@ -2,13 +2,11 @@ import React, { useState } from "react";
 import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 import { ApolloProvider } from "@apollo/react-hooks";
 import ApolloClient from "apollo-boost";
-import { QUERY_ORDERS } from "./utils/queries";
-import { useQuery } from "@apollo/react-hooks";
 
 import Home from "./pages/Home";
-import Nav from "./components/Nav";
+import Shell from "./components/Shell";
+
 // In order for the {StoreProvider} to be accessible, we need a big old reducer function first
-import dayjs from "dayjs";
 
 const client = new ApolloClient({
 	request: (operation) => {
@@ -27,9 +25,7 @@ function App() {
 	return (
 		<ApolloProvider client={client}>
 			<Router>
-				<div>
-					<Home />
-				</div>
+				<Shell />
 			</Router>
 		</ApolloProvider>
 	);

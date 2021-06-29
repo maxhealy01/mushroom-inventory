@@ -96,7 +96,22 @@
 }
 
 .week-btn {
-	background-color: coral !important;
-	border-radius: 10% !important;
+	background-color: lightblue;
+	color: black;
+	border-radius: 50% !important;
 	margin: 1rem;
+}
+
+.nav-btn {
+	background-color: lightblue;
+	display: inline-block;
+	margin: 0.25rem;
+}
+
+.btn-cancel {
+	background-color: rgb(231, 100, 24);
+}
+
+.btn-submit {
+	background-color: rgb(124, 243, 124);
 }

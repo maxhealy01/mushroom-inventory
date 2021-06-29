@@ -272,7 +272,6 @@ const OrderDisplay = (order) => {
 							<tr>
 								<td>Lion Pack</td>
 								<td>
-									{" "}
 									<input
 										value={lionPack}
 										onChange={handleLionPackChange}
@@ -282,14 +281,12 @@ const OrderDisplay = (order) => {
 							<tr>
 								<td>Mixed Oyster Pack</td>
 								<td>
-									{" "}
 									<input value={mix} onChange={handleMixChange}></input>
 								</td>
 							</tr>
 							<tr>
 								<td>Yellow Pack</td>
 								<td>
-									{" "}
 									<input
 										value={yellowPack}
 										onChange={handleYellowPackChange}
@@ -299,7 +296,6 @@ const OrderDisplay = (order) => {
 							<tr>
 								<td>Umami</td>
 								<td>
-									{" "}
 									<input value={umami} onChange={handleUmamiChange}></input>
 								</td>
 							</tr>
@@ -309,7 +305,7 @@ const OrderDisplay = (order) => {
 									<input
 										value={maitakePack}
 										onChange={handleMaitakePackChange}
-									></input>{" "}
+									></input>
 								</td>
 							</tr>
 						</tbody>
@@ -328,35 +324,30 @@ const OrderDisplay = (order) => {
 							<tr>
 								<td>Blue Oyster</td>
 								<td>
-									{" "}
 									<input value={blue} onChange={handleBlueChange}></input>
 								</td>
 							</tr>
 							<tr>
 								<td>Lion's Mane</td>
 								<td>
-									{" "}
 									<input value={lion} onChange={handleLionChange}></input>
 								</td>
 							</tr>
 							<tr>
 								<td>Maitake</td>
 								<td>
-									{" "}
 									<input value={maitake} onChange={handleMaitakeChange}></input>
 								</td>
 							</tr>
 							<tr>
 								<td>Royal Trumpet</td>
 								<td>
-									{" "}
 									<input value={royal} onChange={handleRoyalChange}></input>
 								</td>
 							</tr>
 							<tr>
 								<td>Yellow Oyster</td>
 								<td>
-									{" "}
 									<input value={yellow} onChange={handleYellowChange}></input>
 								</td>
 							</tr>
@@ -364,11 +355,11 @@ const OrderDisplay = (order) => {
 					</table>
 				</div>
 				<div className="table">
-					<button onClick={submitOrderHandler} className="btn-submit btn">
-						Submit Edits
-					</button>
 					<button onClick={cancelEditHandler} className="btn-cancel btn">
 						Cancel
+					</button>
+					<button onClick={submitOrderHandler} className="btn-submit btn">
+						Submit Edits
 					</button>
 				</div>
 			</div>

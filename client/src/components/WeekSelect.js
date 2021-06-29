@@ -21,6 +21,7 @@ function WeekSelect(props) {
 			weeks.push(week);
 		}
 	}
+	weeks.sort((a, b) => (a.week > b.week ? 1 : -1));
 	const weekSelectHandler = (event) => {
 		setSelectedWeek(event.target.value);
 	};

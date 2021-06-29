@@ -19,12 +19,12 @@ th {
 	border: 1px solid #999;
 	padding: 1rem;
 	width: 45%;
-	margin: 0.25rem;
+	margin: 0.5rem;
 	display: inline-block;
 	font-size: 1.6rem;
 	top: 0;
 	background-color: lightblue;
-	color: #330000;
+	color: #003300;
 }
 
 .table {
@@ -36,6 +36,13 @@ th {
 
 input {
 	width: 80%;
+	background-color: lightblue;
+	padding: 0.2rem;
+
+	&:focus {
+		outline: none;
+		border: 2px solid rgba(coral, 1);
+	}
 }
 
 .order-buttons {

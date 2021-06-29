@@ -9,37 +9,38 @@ import OrderDisplay from "../components/OrderDisplay";
 import Totals from "../components/Totals";
 import dayjs from "dayjs";
 
-const Home = () => {
+const Home = (orders) => {
+	let myOrders = orders.orders.orders;
 	// This is the logic to show only the orders of the current week by grabbing their index.
 	let weekOfYear = require("dayjs/plugin/weekOfYear");
+	let dayOfYear = require("dayjs/plugin/dayOfYear");
+	dayjs.extend(dayOfYear);
 	dayjs.extend(weekOfYear);
 	let week = dayjs().week();
-
-	const { loading, data } = useQuery(QUERY_ORDERS);
 
 	const [showWeekSelecter, setShowWeekSelecter] = useState(false);
 	const [selectedWeek, setSelectedWeek] = useState(week);
 
-	const [displayedOrders, setDisplayedOrders] = useState([]);
+	const [displayedOrders, setDisplayedOrders] = useState(myOrders);
 
 	useEffect(() => {
-		setDisplayedOrders(data.orders);
-	}, [data]);
-
-	useEffect(() => {
-		if (data) {
+		if (myOrders) {
 			let displayOrders = [];
-			let orders = data.orders;
 
-			orders.forEach((order) => {
+			myOrders.forEach((order) => {
 				let thisWeek = dayjs(order.date).week();
 				if (thisWeek === Number(selectedWeek)) {
 					displayOrders.push(order);
 				}
 				if (selectedWeek === "all") {
-					displayOrders = orders;
+					displayOrders = myOrders;
 				}
 			});
+
+			// Sort the displayed orders chronologically.
+			displayOrders.sort(
+				(a, b) => dayjs(a.date).dayOfYear() - dayjs(b.date).dayOfYear()
+			);
 
 			setDisplayedOrders(displayOrders);
 		}
@@ -47,24 +48,24 @@ const Home = () => {
 
 	return (
 		<div className="container">
-			{data && (
+			{myOrders && (
 				<Nav
 					selectedWeek={selectedWeek}
 					setSelectedWeek={setSelectedWeek}
 					showWeekSelecter={showWeekSelecter}
 					setShowWeekSelecter={setShowWeekSelecter}
-					orders={data.orders}
+					orders={myOrders}
 					week={week}
 				/>
 			)}
 			<div className="orders-container">
-				{data &&
+				{myOrders &&
 					displayedOrders.map((order) => (
 						<OrderDisplay key={order.name} order={order} />
 					))}
 			</div>
 			<div className="totals-container">
-				{data && <Totals orders={data.orders} />}
+				{displayedOrders && <Totals orders={displayedOrders} />}
 			</div>
 		</div>
 	);

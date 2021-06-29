@@ -144,7 +144,7 @@ const OrderForm = () => {
 	};
 
 	return (
-		<form onSubmit={submitOrder} className="order-form" id="new-order">
+		<form onSubmit={submitOrder} className="order-display" id="new-order">
 			<div className="table">
 				<table>
 					<thead>

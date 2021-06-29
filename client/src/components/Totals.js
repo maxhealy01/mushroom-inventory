@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from "react";
 
 const Totals = ({ orders }) => {
+	console.log(orders);
+
 	// Create variables to track all the totals
 	let totals = {
 		blue: 0,
@@ -10,14 +12,53 @@ const Totals = ({ orders }) => {
 		shiitake: 0,
 		maitake: 0,
 	};
+
 	orders.forEach((order) => {
-		totals.blue += order.boTotal;
-		totals.lion += order.lmTotal;
-		totals.yellow += order.yoTotal;
-		totals.royal += order.rtTotal;
-		totals.shiitake += order.shiTotal;
-		totals.maitake += order.maiTotal;
+		let retail = {
+			blue: order.blue,
+			fancy: order.fancy,
+			kingPack: order.kingPack,
+			lion: order.lion,
+			mixOys: order.mixOys,
+			yellow: order.yellow,
+			umami: order.umami,
+			maitakePack: order.maitakePack,
+		};
+
+		let bulk = {
+			blueOyster: order.blueOyster,
+			lionsMane: order.lionsMane,
+			maitake: order.maitake,
+			royalTrumpet: order.royalTrumpet,
+			yellowOyster: order.yellowOyster,
+		};
+
+		totals.blue += Math.ceil(
+			(retail.umami * 0.25 + retail.mixOys * 0.4 + retail.blue * 0.625) * 8 +
+				bulk.blueOyster * 5.25
+		);
+		totals.lion += Math.ceil(
+			(retail.lion * 0.625 + retail.fancy * 0.25) * 8 + bulk.lionsMane * 5.25
+		);
+		totals.yellow += Math.ceil(
+			(retail.mixOys * 0.2 + retail.yellow * 0.625) * 8 +
+				bulk.yellowOyster * 4.25
+		);
+		totals.royal += Math.ceil(
+			(retail.umami * 0.25 + retail.fancy * 0.21875 + retail.kingPack * 0.625) *
+				8 +
+				bulk.royalTrumpet * 5.25
+		);
+		totals.shiitake += Math.ceil(retail.umami * 0.125 * 8);
+		totals.maitake += Math.ceil(
+			(retail.fancy * 0.1875 + retail.maitakePack * 0.625) * 8 +
+				bulk.maitake * 5.25
+		);
+
+		console.log(retail, bulk);
 	});
+
+	console.log(totals);
 
 	let blocks = {
 		blue: Math.ceil(totals.blue / 2.8),
