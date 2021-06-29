@@ -37,7 +37,9 @@ function Nav(props) {
 					<WeekSelect orders={orders} setSelectedWeek={setSelectedWeek} />
 				)}
 			</nav>
-			{showOrder && <OrderForm />}
+			{showOrder && (
+				<OrderForm showOrder={showOrder} setShowOrder={setShowOrder} />
+			)}
 		</div>
 	);
 }

@@ -65,6 +65,8 @@ const Totals = ({ orders }) => {
 		lion: Math.ceil(totals.lion / 1.1),
 		yellow: Math.ceil(totals.yellow / 1.2),
 		royal: Math.ceil(totals.royal / 1.3),
+		shiitake: totals.shiitake / 5,
+		maitake: totals.maitake / 5,
 	};
 
 	let racks = {
@@ -163,10 +165,12 @@ const Totals = ({ orders }) => {
 						<tr>
 							<td>Shiitake</td>
 							<td>{totals.shiitake}</td>
+							<td className="case-row">{blocks.shiitake} cases</td>
 						</tr>
 						<tr>
 							<td>Maitake</td>
 							<td>{totals.maitake}</td>
+							<td className="case-row">{blocks.maitake} cases</td>
 						</tr>
 					</tbody>
 				</table>
@@ -176,23 +180,30 @@ const Totals = ({ orders }) => {
 					<thead>
 						<tr>
 							<th></th>
-							<th>Blue Oyster</th>
-							<th>Lion's Mane</th>
-							<th>Yellow Oyster</th>
-							<th>Royal Trumpet</th>
-							<th>Shiitake</th>
-							<th>Maitake</th>
+							<th>Current Inventory</th>
+							<th>Total Needed</th>
+							<th>Remaining</th>
 						</tr>
 					</thead>
 					<tbody>
 						<tr>
-							<th>Current inventory</th>
+							<th>Blue Oyster</th>
 							<td>
 								<input type="text" value={blue} onChange={handleBlueChange} />
 							</td>
+							<td>{totals.blue}</td>
+							<td>{totals.blue - blue}</td>
+						</tr>
+						<tr>
+							<th>Lion's Mane</th>
 							<td>
 								<input type="text" value={lion} onChange={handleLionChange} />
 							</td>
+							<td>{totals.lion}</td>
+							<td>{totals.lion - lion}</td>
+						</tr>
+						<tr>
+							<th>Yellow Oyster</th>
 							<td>
 								<input
 									type="text"
@@ -200,9 +211,19 @@ const Totals = ({ orders }) => {
 									onChange={handleYellowChange}
 								/>
 							</td>
+							<td>{totals.yellow}</td>
+							<td>{totals.yellow - yellow}</td>
+						</tr>
+						<tr>
+							<th>Royal Trumpet</th>
 							<td>
 								<input type="text" value={royal} onChange={handleRoyalChange} />
 							</td>
+							<td>{totals.royal}</td>
+							<td>{totals.royal - royal}</td>
+						</tr>
+						<tr>
+							<th>Shiitake</th>
 							<td>
 								<input
 									type="text"
@@ -210,6 +231,11 @@ const Totals = ({ orders }) => {
 									onChange={handleShiitakeChange}
 								/>
 							</td>
+							<td>{totals.shiitake}</td>
+							<td>{totals.shiitake - shiitake}</td>
+						</tr>
+						<tr>
+							<th>Maitake</th>
 							<td>
 								<input
 									type="text"
@@ -217,14 +243,7 @@ const Totals = ({ orders }) => {
 									onChange={handleMaitakeChange}
 								/>
 							</td>
-						</tr>
-						<tr>
-							<th>Needed</th>
-							<td>{totals.blue - blue}</td>
-							<td>{totals.lion - lion}</td>
-							<td>{totals.yellow - yellow}</td>
-							<td>{totals.royal - royal}</td>
-							<td>{totals.shiitake - shiitake}</td>
+							<td>{totals.maitake}</td>
 							<td>{totals.maitake - maitake}</td>
 						</tr>
 					</tbody>

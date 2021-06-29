@@ -21,10 +21,18 @@ body {
 main {
   background-color: #d4dfb3; }
 
+.orders-container,
+.totals-container,
+.new-order-container {
+  padding-top: 1rem;
+  background-color: lightyellow;
+  text-align: center; }
+
 table {
   border-collapse: collapse;
   text-align: center;
-  display: inline-block; }
+  display: inline-block;
+  width: 100%; }
 
 td,
 th {
@@ -33,13 +41,28 @@ th {
   text-align: left;
   font-size: 1.6rem; }
 
-.order-display {
+.order-display,
+.total-display {
   box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
   border-radius: 4%;
   text-align: center;
   border: 1px solid #999;
   padding: 1rem;
   width: 45%;
+  margin: 0.5rem;
+  display: inline-block;
+  font-size: 1.6rem;
+  top: 0;
+  background-color: lightblue;
+  color: #003300; }
+
+.total-display {
+  box-shadow: 0 1.5rem 4rem rgba(0, 0, 0, 0.15);
+  border-radius: 4%;
+  text-align: center;
+  border: 1px solid #999;
+  padding: 1rem;
+  width: 75%;
   margin: 0.5rem;
   display: inline-block;
   font-size: 1.6rem;
@@ -64,8 +87,8 @@ input {
 .order-buttons button {
   color: yellow;
   background-color: hotpink;
-  text-align: center;
-  margin: 0.25rem auto; }
+  text-align: center !important;
+  margin: 0.25rem 0.25rem; }
 
 .btn, .btn:link, .btn:visited {
   text-transform: uppercase;
@@ -147,17 +170,31 @@ input {
 .nav-btn {
   background-color: lightblue;
   display: inline-block;
-  margin: 0.25rem; }
+  margin: 0.5rem; }
 
 .btn-cancel {
-  background-color: #e76418; }
+  background-color: #e76418 !important;
+  color: black !important; }
 
 .btn-submit {
-  background-color: #7cf37c; }
+  margin-left: 0.6rem;
+  background-color: #7cf37c !important;
+  color: black !important; }
+
+.order-buttons {
+  display: flex;
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  text-align: center; }
+  .order-buttons .order-button {
+    display: inline-block;
+    margin-top: 1rem; }
 
 nav {
   background-color: coral;
-  text-align: center; }
+  text-align: center;
+  padding-bottom: 1rem; }
 
 .totals-container {
   font-size: 1.6rem; }

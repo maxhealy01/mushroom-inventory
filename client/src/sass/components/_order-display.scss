@@ -1,7 +1,16 @@
+.orders-container,
+.totals-container,
+.new-order-container {
+	padding-top: 1rem;
+	background-color: lightyellow;
+	text-align: center;
+}
+
 table {
 	border-collapse: collapse;
 	text-align: center;
 	display: inline-block;
+	width: 100%;
 }
 
 td,
@@ -12,13 +21,29 @@ th {
 	font-size: 1.6rem;
 }
 
-.order-display {
+.order-display,
+.total-display {
 	box-shadow: 0 1.5rem 4rem rgba(black, 0.15);
 	border-radius: 4%;
 	text-align: center;
 	border: 1px solid #999;
 	padding: 1rem;
 	width: 45%;
+	margin: 0.5rem;
+	display: inline-block;
+	font-size: 1.6rem;
+	top: 0;
+	background-color: lightblue;
+	color: #003300;
+}
+
+.total-display {
+	box-shadow: 0 1.5rem 4rem rgba(black, 0.15);
+	border-radius: 4%;
+	text-align: center;
+	border: 1px solid #999;
+	padding: 1rem;
+	width: 75%;
 	margin: 0.5rem;
 	display: inline-block;
 	font-size: 1.6rem;
@@ -49,7 +74,7 @@ input {
 	& button {
 		color: yellow;
 		background-color: hotpink;
-		text-align: center;
-		margin: 0.25rem auto;
+		text-align: center !important;
+		margin: 0.25rem 0.25rem;
 	}
 }

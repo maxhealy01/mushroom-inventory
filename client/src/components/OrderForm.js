@@ -2,8 +2,13 @@ import React, { useEffect, useState } from "react";
 import { useMutation } from "@apollo/react-hooks";
 import { ADD_ORDER } from "../utils/mutations";
 
-const OrderForm = () => {
+const OrderForm = (props) => {
+	const { showOrder, setShowOrder } = props;
 	const [addOrder] = useMutation(ADD_ORDER);
+
+	const handleCancel = () => {
+		setShowOrder(!showOrder);
+	};
 
 	const [name, setName] = useState("");
 	const [date, setDate] = useState("");
@@ -144,153 +149,171 @@ const OrderForm = () => {
 	};
 
 	return (
-		<form onSubmit={submitOrder} className="order-display" id="new-order">
-			<div className="table">
-				<table>
-					<thead>
-						<tr>
-							<th>Type</th>
-							<th>Quantity</th>
-						</tr>
-					</thead>
-					<tbody>
-						<tr>
-							<td>Name</td>
-							<td>
-								<input type="text" value={name} onChange={handleNameChange} />
-							</td>
-						</tr>
-						<tr>
-							<td>Date</td>
-							<td>
-								<input type="date" value={date} onChange={handleDateChange} />
-							</td>
-						</tr>
-						<tr>
-							<td>Blue Pack</td>
-							<td>
-								<input
-									type="number"
-									value={bluePack}
-									onChange={handleBluePackChange}
-								/>
-							</td>
-						</tr>
-						<tr>
-							<td>Fancy Pack</td>
-							<td>
-								<input
-									type="number"
-									value={fancy}
-									onChange={handleFancyChange}
-								/>
-							</td>
-						</tr>
-						<tr>
-							<td>King Pack</td>
-							<td>
-								<input type="number" value={king} onChange={handleKingChange} />
-							</td>
-						</tr>
-						<tr>
-							<td>Lion Pack</td>
-							<td>
-								<input
-									type="number"
-									value={lionPack}
-									onChange={handleLionPackChange}
-								/>
-							</td>
-						</tr>
-						<tr>
-							<td>Mixed Oyster Pack</td>
-							<td>
-								<input type="number" value={mix} onChange={handleMixChange} />
-							</td>
-						</tr>
-						<tr>
-							<td>Yellow Pack</td>
-							<td>
-								<input
-									type="number"
-									value={yellowPack}
-									onChange={handleYellowPackChange}
-								/>
-							</td>
-						</tr>
-						<tr>
-							<td>Umami Pack</td>
-							<td>
-								<input
-									type="number"
-									value={umami}
-									onChange={handleUmamiChange}
-								/>
-							</td>
-						</tr>
-						<tr>
-							<td>Maitake Pack</td>
-							<td>
-								<input
-									type="number"
-									value={maitakePack}
-									onChange={handleMaitakePackChange}
-								></input>
-							</td>
-						</tr>
-						<tr>
-							<td>Blue Oyster (Bulk)</td>
-							<td>
-								<input type="number" value={blue} onChange={handleBlueChange} />
-							</td>
-						</tr>
-						<tr>
-							<td>Lion's Mane (Bulk)</td>
-							<td>
-								<input type="number" value={lion} onChange={handleLionChange} />
-							</td>
-						</tr>
-						<tr>
-							<td>Yellow Oyster (Bulk)</td>
-							<td>
-								<input
-									type="number"
-									value={yellow}
-									onChange={handleYellowChange}
-								/>
-							</td>
-						</tr>
-						<tr>
-							<td>Royal Trumpet (Bulk)</td>
-							<td>
-								<input
-									type="number"
-									value={royal}
-									onChange={handleRoyalChange}
-								/>
-							</td>
-						</tr>
-						<tr>
-							<td>Maitake (Bulk)</td>
-							<td>
-								<input
-									type="number"
-									value={maitake}
-									onChange={handleMaitakeChange}
-								/>
-							</td>
-						</tr>
-						<tr>
-							<td colSpan="2">
-								<button className="order-button" type="submit">
+		<div className="new-order-container">
+			<form onSubmit={submitOrder} className="order-display" id="new-order">
+				<div className="table">
+					<table>
+						<thead>
+							<tr>
+								<th>Type</th>
+								<th>Quantity</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr>
+								<td>Name</td>
+								<td>
+									<input type="text" value={name} onChange={handleNameChange} />
+								</td>
+							</tr>
+							<tr>
+								<td>Date</td>
+								<td>
+									<input type="date" value={date} onChange={handleDateChange} />
+								</td>
+							</tr>
+							<tr>
+								<td>Blue Pack</td>
+								<td>
+									<input
+										type="number"
+										value={bluePack}
+										onChange={handleBluePackChange}
+									/>
+								</td>
+							</tr>
+							<tr>
+								<td>Fancy Pack</td>
+								<td>
+									<input
+										type="number"
+										value={fancy}
+										onChange={handleFancyChange}
+									/>
+								</td>
+							</tr>
+							<tr>
+								<td>King Pack</td>
+								<td>
+									<input
+										type="number"
+										value={king}
+										onChange={handleKingChange}
+									/>
+								</td>
+							</tr>
+							<tr>
+								<td>Lion Pack</td>
+								<td>
+									<input
+										type="number"
+										value={lionPack}
+										onChange={handleLionPackChange}
+									/>
+								</td>
+							</tr>
+							<tr>
+								<td>Mixed Oyster Pack</td>
+								<td>
+									<input type="number" value={mix} onChange={handleMixChange} />
+								</td>
+							</tr>
+							<tr>
+								<td>Yellow Pack</td>
+								<td>
+									<input
+										type="number"
+										value={yellowPack}
+										onChange={handleYellowPackChange}
+									/>
+								</td>
+							</tr>
+							<tr>
+								<td>Umami Pack</td>
+								<td>
+									<input
+										type="number"
+										value={umami}
+										onChange={handleUmamiChange}
+									/>
+								</td>
+							</tr>
+							<tr>
+								<td>Maitake Pack</td>
+								<td>
+									<input
+										type="number"
+										value={maitakePack}
+										onChange={handleMaitakePackChange}
+									></input>
+								</td>
+							</tr>
+							<tr>
+								<td>Blue Oyster (Bulk)</td>
+								<td>
+									<input
+										type="number"
+										value={blue}
+										onChange={handleBlueChange}
+									/>
+								</td>
+							</tr>
+							<tr>
+								<td>Lion's Mane (Bulk)</td>
+								<td>
+									<input
+										type="number"
+										value={lion}
+										onChange={handleLionChange}
+									/>
+								</td>
+							</tr>
+							<tr>
+								<td>Yellow Oyster (Bulk)</td>
+								<td>
+									<input
+										type="number"
+										value={yellow}
+										onChange={handleYellowChange}
+									/>
+								</td>
+							</tr>
+							<tr>
+								<td>Royal Trumpet (Bulk)</td>
+								<td>
+									<input
+										type="number"
+										value={royal}
+										onChange={handleRoyalChange}
+									/>
+								</td>
+							</tr>
+							<tr>
+								<td>Maitake (Bulk)</td>
+								<td>
+									<input
+										type="number"
+										value={maitake}
+										onChange={handleMaitakeChange}
+									/>
+								</td>
+							</tr>
+							<div className="order-buttons">
+								<button
+									className="btn-cancel btn order-button order-btn-left"
+									onClick={handleCancel}
+								>
+									Cancel
+								</button>
+								<button className="btn btn-submit order-button" type="submit">
 									Submit
 								</button>
-							</td>
-						</tr>
-					</tbody>
-				</table>
-			</div>
-		</form>
+							</div>
+						</tbody>
+					</table>
+				</div>
+			</form>
+		</div>
 	);
 };
 
